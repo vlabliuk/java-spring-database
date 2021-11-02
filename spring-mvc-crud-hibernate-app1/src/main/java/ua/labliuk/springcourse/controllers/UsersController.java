@@ -11,61 +11,70 @@ import ua.labliuk.springcourse.models.User;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/people")
+@RequestMapping("/users")
 public class UsersController {
 
     private final UserDAO userDAO;
 
+    //inject DAO
     @Autowired
     public UsersController(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
 
+    //show all Users
     @GetMapping()
     public String index(Model model){
         model.addAttribute("users", userDAO.index());
-        return "people/index";
+        return "users/index";
     }
 
+    //show User with {id}
     @RequestMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model){
-        model.addAttribute("person", userDAO.show(id));
-        return "people/show";
+        model.addAttribute("user", userDAO.show(id));
+        return "users/show";
     }
 
+    //pass new User to users/new form
     @GetMapping("/new")
-    public String newPerson(@ModelAttribute("person") User user){
-        return "people/new";
+    public String newPerson(@ModelAttribute("user") User user){
+        return "users/new";
     }
 
+    //get new User from users/new form
     @PostMapping()
-    public String create(@ModelAttribute("person") @Valid User user, BindingResult bindingResult){
+    public String create(@ModelAttribute("user") @Valid User user, BindingResult bindingResult){
         if(bindingResult.hasErrors())
-            return "people/new";
+            return "users/new";
         userDAO.save(user);
-        return "redirect:/people";
+        return "redirect:/users";
     }
 
+    //pass user with {id} to users/edit form
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id){
-        model.addAttribute("person", userDAO.show(id));
-        return "people/edit";
+        model.addAttribute("user", userDAO.show(id));
+        return "users/edit";
     }
 
+    //update User with data from users/edit
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("person") @Valid User user, BindingResult bindingResult, @PathVariable("id") int id, Model model){
+    public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, @PathVariable("id") int id, Model model){
         if(bindingResult.hasErrors())
-            return "people/edit";
+            return "users/edit";
         user.setAccount_id(id);
         userDAO.update(user);
-        return "redirect:/people";
+        return "redirect:/users";
     }
 
+    //delete User with {id}
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id){
         userDAO.delete(id);
-        return "redirect:/people";
+        return "redirect:/users";
     }
+
     @GetMapping("/greetingpage")
     public String enter(){
         return "/hellopage";
