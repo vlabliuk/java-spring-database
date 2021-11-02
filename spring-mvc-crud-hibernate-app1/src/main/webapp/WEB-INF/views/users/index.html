@@ -3,17 +3,17 @@
       xsi:schemaLocation="http://thymeleaf.org/ ">
 <head>
     <meta charset="UTF-8">
-    <title>Все люди</title>
+    <title>All users</title>
 </head>
 <body>
 
     <div th:each=" user : ${users} ">
-    <a th:href="@{/people/{id}(id =${user.getAccount_id()})}" th:text="${user.getAccount_id() + ' - ' + user.getName() + ', ' + user.getSurname()
+    <a th:href="@{/users/{id}(id =${user.getAccount_id()})}" th:text="${user.getAccount_id() + ' - ' + user.getName() + ', ' + user.getSurname()
     + ', ' + user.getAge() + ', ' + user.getUsername() + ', ' + user.getPassword()}">VALUE</a>
-</div>
+    </div>
 <br/>
 <hr/>
-<a href="/people/new">Create new person</a>
+<a href="/users/new">Create new person</a>
     <form form-method="post" th:action="@{/logout}">
         <button type="submit">Logout</button>
     </form>
