@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:c="http://xmlns.jcp.org/xml/ns/javaee" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://bootswatch.com/3/superhero/bootstrap.min.css" >
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
@@ -7,9 +8,10 @@
 <body>
 Hello
 <c:url var="enterButton" value="/enter"/>
-<input type="button" value="Update" onclick="window.location.href='/users'"/>
+<input type="button" value="Update" onclick="window.location.href='/users'" class="btn btn-labeled btn-success"/>
 <form form-method="post" th:action="@{/logout}">
-    <button type="submit">Logout</button>
+    <button type="button" class="btn btn-labeled btn-danger">
+        <span class="btn-label"><i class="fa fa-remove"></i></span>Logout</button>
 </form>
 </body>
 </html>
