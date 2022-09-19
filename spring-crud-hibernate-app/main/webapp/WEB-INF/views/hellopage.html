@@ -9,9 +9,12 @@
 Hello
 <c:url var="enterButton" value="/enter"/>
 <input type="button" value="Update" onclick="window.location.href='/users'" class="btn btn-labeled btn-success"/>
-<form form-method="post" th:action="@{/logout}">
-    <button type="button" class="btn btn-labeled btn-danger">
-        <span class="btn-label"><i class="fa fa-remove"></i></span>Logout</button>
+<!--<form form-method="post" th:action="@{/logout}">-->
+<!--    <button type="button" class="btn btn-labeled btn-danger" onclick="window.location.href='/users/firstpage'">-->
+<!--        <span class="btn-label"><i class="fa fa-remove"></i></span>Logout</button>-->
+<!--</form>-->
+<form class="navbar-form navbar-right" form-method="post" th:action="@{/logout}">
+    <button class="btn btn-labeled btn-danger">Logout</button>
 </form>
 </body>
 </html>
