@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>New Person</title>
+    <link rel="stylesheet" href="https://bootswatch.com/3/superhero/bootstrap.min.css" >
+</head>
+<style>
+    .data-input{
+        background-color: #d4e3ee;
+    }
+    .fourth_inner{
+        padding: 20vh;
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+    }
+    .form{
+        color: rgb(135, 139, 141);
+        border-radius: 5px;
+        background-color: #1f2126;
+        padding: 10px;
+        width: 340px;
+        word-wrap: break-word;
+    }
+    .btns{
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+</style>
+<body>
+        <div class="fourth_inner">
+            <div class="form">
+<form class="add-form" th:method="POST" th:action="@{/users}" th:object="${user}">
+    <label for="name">Enter name: </label>
+    <input class="data-input" type="text" th:field="*{name}" id="name">
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    <br/><br/>
+    <label for="surname">Enter surname: </label>
+    <input class="data-input" type="text" th:field="*{surname}" id="surname">
+    <div style="color: red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Name error</div>
+    <br/><br/>
+    <label for="age">Enter age: </label>
+    <input class="data-input" type="text" th:field="*{age}" id="age">
+    <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name error</div>
+    <br/><br/>
+    <label for="username">Enter username: </label>
+    <input class="data-input" type="text" th:field="*{username}" id="username">
+    <div style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name error</div>
+    <br/><br/>
+    <label for="password">Enter password: </label>
+    <input class="data-input" type="text" th:field="*{password}" id="password">
+    <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name error</div>
+    <br/><br/>
+    <div class="btns">
+        <button type="submit" class="btn btn-labeled btn-success"><span class="btn-label"><i class="fa fa-check"></i></span>Create</button>
+        <button type="button" onclick="window.location.href='/users'" class="btn btn-labeled btn-danger"><span class="btn-label"><i class="fa fa-remove"></i></span>Cancel </button>
+    </div>
+
+</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

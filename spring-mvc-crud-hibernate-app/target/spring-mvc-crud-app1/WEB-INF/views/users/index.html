@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org/ ">
+<head>
+    <meta charset="UTF-8">
+    <title>All users</title>
+    <link rel="stylesheet" href="https://bootswatch.com/3/superhero/bootstrap.min.css" >
+</head>
+<style>
+    .data-table, .data-th, .data-td {
+        border:1px solid #5f6381;
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
+<body>
+<form class="navbar-form navbar-right" form-method="post" th:action="@{/logout}">
+    <button class="btn btn-primary">Logout</button>
+</form>
+<form class="navbar-form navbar-right">
+    <a href="/users/new" class="btn btn-success">Add <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;</a>
+</form>
+
+<!--<div id="top-bar">
+    <form form-method="post" href="/users/new">
+        <button type="submit">Create</button>
+    <form form-method="post" th:action="@{/logout}">
+        <button type="submit">Logout</button>
+    </form>
+</div>-->
+
+<br><br>
+<table class="data-table" style="width:100%">
+    <tr>
+        <th class="data-th">ID</th>
+        <th class="data-th">First Name</th>
+        <th class="data-th">Last Name</th>
+        <th class="data-th">Age</th>
+        <th class="data-th">Login</th>
+        <th class="data-th">Password</th>
+    </tr>
+    <div th:each=" user : ${users} ">
+        <tr>
+            <td class="data-td"><a th:href="@{/users/{id}(id =${user.getAccount_id()})}" th:text="${user.getAccount_id()}">VALUE</a></td>
+            <td class="data-td"><span th:href="@{/users/{id}(id =${user.getAccount_id()})}" th:text="${user.getName()}">VALUE</span></td>
+            <td class="data-td"><span th:href="@{/users/{id}(id =${user.getAccount_id()})}" th:text="${user.getSurname()}">VALUE</span></td>
+            <td class="data-td"><span th:href="@{/users/{id}(id =${user.getAccount_id()})}" th:text="${user.getAge()}">VALUE</span></td>
+            <td class="data-td"><span th:href="@{/users/{id}(id =${user.getAccount_id()})}" th:text="${user.getUsername()}">VALUE</span></td>
+            <td class="data-td"><span th:href="@{/users/{id}(id =${user.getAccount_id()})}" th:text="${user.getPassword()}">VALUE</span></td>
+        </tr>
+    </div>
+</table>
+<br/>
+<hr/>
+</body>
+</html>
