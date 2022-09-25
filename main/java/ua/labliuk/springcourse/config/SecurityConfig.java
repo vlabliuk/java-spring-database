@@ -30,8 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").hasAnyRole("EMPLOYEE","MANAGER","HR")
                 .antMatchers("/users/greetingpage").hasAnyRole("EMPLOYEE","MANAGER","HR")
                 .antMatchers("/users").hasRole("MANAGER")
-                .antMatchers("/users/").hasRole("MANAGER")
-                //.regexMatchers("/users[\\d\\D]*").hasRole("MANAGER")
                 .and().formLogin().permitAll().and().logout().logoutSuccessUrl("/users/firstpage")
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/users/firstpage");
     }

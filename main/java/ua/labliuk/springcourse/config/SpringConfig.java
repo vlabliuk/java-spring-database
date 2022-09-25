@@ -64,10 +64,9 @@ public class SpringConfig implements WebMvcConfigurer {
         try {
             comboPooledDataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
             //comboPooledDataSource.setJdbcUrl("jdbc:mysql://database-1.c6eboyvoj802.us-east-2.rds.amazonaws.com:3306/somedb?useSSL=false");
-            comboPooledDataSource.setJdbcUrl("jdbc:mysql://usersdb-1.c6eboyvoj802.us-east-2.rds.amazonaws.com:3306/somedb?useSSL=false");
-            //comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/somedb?useSSL=false");
+            comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/somedb?useSSL=false");
             comboPooledDataSource.setUser("root");
-            comboPooledDataSource.setPassword("password");
+            comboPooledDataSource.setPassword("Vovavova1990");
             comboPooledDataSource.setInitialPoolSize(5);
             comboPooledDataSource.setMinPoolSize(5);
             comboPooledDataSource.setAcquireIncrement(5);

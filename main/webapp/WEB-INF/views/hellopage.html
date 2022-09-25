@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:c="http://xmlns.jcp.org/xml/ns/javaee" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+Hello
+<c:url var="enterButton" value="/enter"/>
+<input type="button" value="Update" onclick="window.location.href='/users'"/>
+<form form-method="post" th:action="@{/logout}">
+    <button type="submit">Logout</button>
+</form>
+</body>
+</html>
